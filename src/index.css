@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: "Cinzel", Georgia, serif;
+    --font-body: "Merriweather", Georgia, serif;
+    --surface-obsidian: rgba(12, 15, 24, 0.90);
+    --surface-stone: rgba(18, 22, 34, 0.94);
+    --gold-trim: rgba(212, 168, 83, 0.42);
+    --gold-bright: #e6ba63;
+    --teal-flux: #2dd4bf;
+  }
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: var(--font-body);
+    background-color: #090b12;
+    color: #ede7d9;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+    /* Custom golden thematic cursor for desktop */
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'%3E%3Cpath d='M3 2 L20 11 L12 14 L9 22 Z' fill='%23e6ba63' stroke='%2312151f' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E") 3 2, auto;
+  }
+
+  button,
+  a,
+  select,
+  input[type="range"],
+  [role="button"] {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'%3E%3Cpath d='M3 2 L20 11 L12 14 L9 22 Z' fill='%23fde68a' stroke='%2312151f' stroke-width='1.8' stroke-linejoin='round'/%3E%3Ccircle cx='17' cy='18' r='3' fill='%232dd4bf'/%3E%3C/svg%3E") 3 2, pointer;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Dark-Fantasy carved stone & gilded brass panel (zero backdrop-filter over WebGL!) */
+.flux-panel {
+  background: linear-gradient(165deg, rgba(20, 24, 38, 0.95) 0%, rgba(10, 13, 21, 0.96) 100%);
+  border: 1px solid rgba(212, 168, 83, 0.36);
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.72),
+    inset 0 1px 0 rgba(245, 208, 130, 0.16),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.65);
+}
+
+.flux-panel-subtle {
+  background: rgba(13, 16, 26, 0.88);
+  border: 1px solid rgba(212, 168, 83, 0.24);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.58);
+}
+
+.flux-btn {
+  font-family: var(--font-display);
+  background: linear-gradient(180deg, rgba(38, 43, 62, 0.94) 0%, rgba(20, 24, 36, 0.96) 100%);
+  border: 1px solid rgba(212, 168, 83, 0.42);
+  color: #f3ead6;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.48), inset 0 1px 0 rgba(255, 224, 155, 0.14);
+  transition: transform 150ms cubic-bezier(0.16, 1, 0.3, 1), border-color 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.flux-btn:hover:not(:disabled) {
+  border-color: rgba(240, 198, 110, 0.88);
+  color: #fff8e7;
+  transform: translateY(-1px);
+}
+
+.flux-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.flux-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.flux-btn-primary {
+  font-family: var(--font-display);
+  background: linear-gradient(180deg, #b8822e 0%, #835718 100%);
+  border: 1px solid #f0cb78;
+  color: #fff9eb;
+  box-shadow: 0 6px 20px rgba(184, 130, 46, 0.32), inset 0 1px 0 rgba(255, 244, 210, 0.38);
+  transition: transform 150ms cubic-bezier(0.16, 1, 0.3, 1), filter 180ms ease;
+}
+
+.flux-btn-primary:hover:not(:disabled) {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+}
+
+.flux-btn-primary:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+/* Custom scrollbar inside modals */
+.flux-scroll {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 168, 83, 0.45) rgba(12, 15, 24, 0.4);
+}
+.flux-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.flux-scroll::-webkit-scrollbar-track {
+  background: rgba(12, 15, 24, 0.4);
+}
+.flux-scroll::-webkit-scrollbar-thumb {
+  background: rgba(212, 168, 83, 0.45);
+  border-radius: 3px;
+}
+
+/* Low graphics mode reduces UI transition cost */
+body[data-graphics="low"] * {
+  transition-duration: 0ms !important;
+  animation-duration: 0ms !important;
+}

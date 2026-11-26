@@ -1,0 +1,6 @@
+{
+  "name": "FLUX GP: Metamorph Racers",
+  "description": "3D mutagenic arcade racing campaign on the living planet Flux with physical vehicle subsystem damage, 13 dynamic mutations, 15 story stages, and a Free Season.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
